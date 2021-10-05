@@ -4,8 +4,8 @@ import (
 	"fmt"
 	beego "github.com/beego/beego/v2/server/web"
 	"github.com/beego/beego/v2/server/web/context"
-	_ "home/routers"
 	_ "home/models"
+	_ "home/routers"
 	"net/http"
 	"strings"
 )
@@ -18,7 +18,6 @@ func main() {
 func ignoreStaticPath() {
 	beego.InsertFilter("/", beego.BeforeRouter, TransparentStatic)
 	beego.InsertFilter("/*", beego.BeforeRouter, TransparentStatic)
-
 }
 
 func TransparentStatic(ctx *context.Context) {

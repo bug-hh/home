@@ -65,7 +65,7 @@ func (this *SessionController) Login() {
 	// 与数据库匹配判断密码是否正确
 	var query_user models.User
 	o := orm.NewOrm()
-	err := o.QueryTable("user").Filter("name", resp["mobile"]).One(&query_user)
+	err := o.QueryTable("user").Filter("mobile", resp["mobile"]).One(&query_user)
 	if err == orm.ErrMultiRows {
 		// 多条的时候报错
 		fmt.Printf("Returned Multi Rows Not One")
